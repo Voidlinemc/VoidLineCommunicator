@@ -1,0 +1,9 @@
+name: Voidline communicator
+main: org.withor.voidline.communicator.VoidLineCommunicator
+version: "1.0.0"
+api: ["1.0.0"]
+load: POSTWORLD
+author: Voidline
+authors: ["Withors"]
+description: Voidline communicator plugin
+website: https://voidline.xyz

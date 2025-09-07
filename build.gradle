@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+}
+
+allprojects {
+    group = "org.withor.voidline"
+    version = "1.0-SNAPSHOT"
+
+    repositories {
+        mavenCentral()
+        maven {
+            url = uri("https://jitpack.io")
+        }
+
+        maven {
+            name = "OpencollabReleases"
+            url = uri("https://repo.opencollab.dev/maven-releases")
+        }
+
+        maven {
+            name = "OpencollabSnapshots"
+            url = uri("https://repo.opencollab.dev/maven-snapshots")
+        }
+    }
+
+}
+
+subprojects {
+    apply plugin: "java"
+
+    if (project.name != "API") {
+        dependencies {
+            implementation project(":API")
+        }
+        tasks.jar {
+            duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+            from {
+                configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+            } {
+                exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+                into("")
+            }
+        }
+    }
+
+    tasks.named("jar") {
+        archiveBaseName.set("VLCommunicator-" + project.name)
+    }
+
+    dependencies {
+        compileOnly("org.projectlombok:lombok:1.18.40")
+        annotationProcessor("org.projectlombok:lombok:1.18.40")
+    }
+}

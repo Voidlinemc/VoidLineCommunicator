@@ -1,0 +1,8 @@
+rootProject.name = 'VoidLineCommunicator'
+
+
+include("API")
+include("PoweredNukkitX")
+include("Nukkit")
+include("Nukkit-MOT")
+include("WaterdogPE")

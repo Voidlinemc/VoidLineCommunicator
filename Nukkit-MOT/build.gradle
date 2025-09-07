@@ -1,0 +1,14 @@
+plugins {
+    id "java"
+}
+
+repositories {
+    maven {
+        name = "lanink"
+        url = uri("https://repo.lanink.cn/repository/maven-public/")
+    }
+}
+
+dependencies {
+    compileOnly ("cn.nukkit:Nukkit:MOT-SNAPSHOT")
+}
