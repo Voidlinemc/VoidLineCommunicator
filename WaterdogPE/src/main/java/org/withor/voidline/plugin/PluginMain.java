@@ -17,7 +17,7 @@ public class PluginMain extends Plugin {
                 getLogger().error("Self-attach is disabled use -Djdk.attach.allowAttachSelf=true");
                 System.exit(1);
             }
-            
+
             File jarFile = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
             String jarPath = jarFile.getAbsolutePath();
             String pid = ProcessHandle.current().pid() + "";

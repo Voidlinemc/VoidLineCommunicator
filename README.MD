@@ -4,7 +4,7 @@
 1. [x] Nukkit
 2. [x] Nukkit-MOT
 3. [x] PoweredNukkitX
-4. [x] WaterdogPE (throught java agent)
+4. [x] WaterdogPE (throught java agent self-attach)
 
 [Download Binaries](https://github.com/Voidlinemc/VoidLineCommunicator/releases)
 
