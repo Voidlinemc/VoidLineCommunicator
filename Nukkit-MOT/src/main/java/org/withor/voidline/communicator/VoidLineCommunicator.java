@@ -19,7 +19,7 @@ public class VoidLineCommunicator extends PluginBase {
 
     @Override
     public void onEnable() {
-        this.getServer().getNetwork().registerPacket(ProtocolInfo.v1_21_70, (byte) 177, ScriptMessagePacket.class);
+        this.getServer().getNetwork().registerPacket((byte) 177, ScriptMessagePacket.class);
         communicator = this;
         config = new Config(
                 new File(this.getDataFolder(), "config.yml"),

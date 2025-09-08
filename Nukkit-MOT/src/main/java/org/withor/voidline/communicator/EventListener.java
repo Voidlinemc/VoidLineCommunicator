@@ -16,13 +16,11 @@ import xyz.voidline.api.events.events.VoidLinePlayerJoinEvent;
 public class EventListener implements Listener {
     @EventHandler
     public void onPacketReceived(DataPacketReceiveEvent event) {
-        if(event.getPlayer().getGameVersion().getProtocol() < ProtocolInfo.v1_21_70) return;
-
         if (!(event.getPacket() instanceof ScriptMessagePacket pkt)) {
             return;
         }
 
-        if ("voidline:handshake".equals(pkt.getChannel())) {
+        if ("voidline:handshake".equals(pkt.getChannell())) {
             Player player = event.getPlayer();
             VoidLinePlayer vp = new VoidLinePlayer(player);
             VoidLinePlayerStorage.addPlayer(player.getUniqueId(), vp);

@@ -30,7 +30,7 @@ public class ScriptMessagePacket extends DataPacket {
         this.putString(message);
     }
 
-    public String getChannel() {
+    public String getChannell() {
         return channel;
     }
 
