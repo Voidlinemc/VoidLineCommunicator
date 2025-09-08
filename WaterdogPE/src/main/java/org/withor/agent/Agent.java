@@ -34,6 +34,11 @@ public class Agent {
 
     @SneakyThrows
     public static void premain(String agentArgs, Instrumentation inst) {
+        agentmain(agentArgs, inst);
+    }
+
+    @SneakyThrows
+    public static void agentmain(String agentArgs, Instrumentation inst) {
         File dataFolder = new File(System.getProperty("user.dir"), "plugins\\Voidline communicator");
         File configFile = new File(dataFolder, "config.json");
         dataFolder.mkdirs();

@@ -30,6 +30,7 @@ jar {
     manifest {
         attributes(
                 'Premain-Class': 'org.withor.agent.Agent',
+                'Agent-Class': 'org.withor.agent.Agent',
                 'Can-Redefine-Classes': 'true',
                 'Can-Retransform-Classes': 'true'
         )

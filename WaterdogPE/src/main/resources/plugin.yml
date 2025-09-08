@@ -1,0 +1,4 @@
+name: Voidline communicator
+main: org.withor.voidline.plugin.PluginMain
+version: "1.0.0"
+author: Voidline
