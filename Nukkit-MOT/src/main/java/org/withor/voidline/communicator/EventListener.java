@@ -6,10 +6,12 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerQuitEvent;
 import cn.nukkit.event.server.DataPacketReceiveEvent;
 import cn.nukkit.network.protocol.ProtocolInfo;
-import org.withor.voidline.api.IVoidLinePlayer;
+import xyz.voidline.api.IVoidLinePlayer;
 import org.withor.voidline.protocol.ScriptMessagePacket;
 import cn.nukkit.utils.Config;
-import org.withor.voidline.api.VoidLinePlayerStorage;
+import xyz.voidline.api.VoidLinePlayerStorage;
+import xyz.voidline.api.events.EventManager;
+import xyz.voidline.api.events.events.VoidLinePlayerJoinEvent;
 
 public class EventListener implements Listener {
     @EventHandler
@@ -21,13 +23,13 @@ public class EventListener implements Listener {
         }
 
         if ("voidline:handshake".equals(pkt.getChannel())) {
-            Player p = event.getPlayer();
-            VoidLinePlayer vp = new VoidLinePlayer(p);
-            VoidLinePlayerStorage.addPlayer(p.getUniqueId(), vp);
+            Player player = event.getPlayer();
+            VoidLinePlayer vp = new VoidLinePlayer(player);
+            VoidLinePlayerStorage.addPlayer(player.getUniqueId(), vp);
 
             Config config = VoidLineCommunicator.getCommunicator().getConfig();
 
-            IVoidLinePlayer vlp = VoidLinePlayerStorage.getPlayer(p.getUniqueId());
+            IVoidLinePlayer vlp = VoidLinePlayerStorage.getPlayer(player.getUniqueId());
 
             if(config.getBoolean("unblockAllModulesOnJoin")) vlp.unblockAll();
 
@@ -36,6 +38,8 @@ public class EventListener implements Listener {
             for(String module : blocks) {
                 vlp.blockModule(module);
             }
+
+            EventManager.call(new VoidLinePlayerJoinEvent(player.getUniqueId(), vp));
         }
     }
 

@@ -7,9 +7,11 @@ import org.cloudburstmc.protocol.bedrock.packet.ScriptMessagePacket;
 import org.cloudburstmc.protocol.common.PacketSignal;
 import org.withor.agent.Agent;
 import org.withor.mixins.*;
-import org.withor.voidline.api.IVoidLinePlayer;
-import org.withor.voidline.api.VoidLinePlayerStorage;
+import xyz.voidline.api.IVoidLinePlayer;
+import xyz.voidline.api.VoidLinePlayerStorage;
 import org.withor.voidline.communicator.VoidLinePlayer;
+import xyz.voidline.api.events.EventManager;
+import xyz.voidline.api.events.events.VoidLinePlayerJoinEvent;
 
 @Mixin(EntityMap.class)
 public class EntityMapMixin {
@@ -35,6 +37,8 @@ public class EntityMapMixin {
             for(String module : blocks) {
                 vlp.blockModule(module);
             }
+
+            EventManager.call(new VoidLinePlayerJoinEvent(player.getUniqueId(), vp));
         }
     }
 }

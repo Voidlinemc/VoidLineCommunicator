@@ -1,4 +1,4 @@
-package org.withor.voidline.api;
+package xyz.voidline.api;
 
 public interface IVoidLinePlayer {
     Object getHandle();

@@ -4,8 +4,8 @@ import cn.nukkit.Player;
 import cn.nukkit.network.protocol.ScriptMessagePacket;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import org.withor.voidline.api.IVoidLinePlayer;
-import org.withor.voidline.api.TabList;
+import xyz.voidline.api.IVoidLinePlayer;
+import xyz.voidline.api.TabList;
 
 public class VoidLinePlayer implements IVoidLinePlayer {
     private final Player handle;

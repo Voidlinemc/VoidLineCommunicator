@@ -2,10 +2,10 @@ package org.withor.voidline.communicator;
 
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import org.cloudburstmc.protocol.bedrock.packet.ScriptMessagePacket;
-import org.withor.voidline.api.TabList;
+import xyz.voidline.api.TabList;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import org.withor.voidline.api.IVoidLinePlayer;
+import xyz.voidline.api.IVoidLinePlayer;
 
 public class VoidLinePlayer implements IVoidLinePlayer {
     private final ProxiedPlayer handle;

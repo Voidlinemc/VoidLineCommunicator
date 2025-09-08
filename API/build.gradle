@@ -1,7 +1,32 @@
 plugins {
     id "java"
+    id "maven-publish"
 }
 
 dependencies {
 
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            groupId = "xyz.voidline.api"
+            artifactId = "Communicator-API"
+            version = "1.0-SNAPSHOT"
+        }
+    }
+
+    repositories {
+        maven {
+            name = "voidlineReleases"
+            url = uri("https://maven.voidline.xyz/releases")
+
+             credentials {
+                 username = System.getenv("VLREPO_USER")
+                 password = System.getenv("VLREPO_PASS")
+             }
+        }
+    }
 }

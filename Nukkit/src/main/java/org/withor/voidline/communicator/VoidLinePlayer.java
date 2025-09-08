@@ -1,11 +1,11 @@
 package org.withor.voidline.communicator;
 
 import cn.nukkit.Player;
-import org.withor.voidline.api.TabList;
+import xyz.voidline.api.TabList;
 import org.withor.voidline.protocol.ScriptMessagePacket;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import org.withor.voidline.api.IVoidLinePlayer;
+import xyz.voidline.api.IVoidLinePlayer;
 
 public class VoidLinePlayer implements IVoidLinePlayer {
     private final Player handle;

@@ -1,4 +1,4 @@
-package org.withor.voidline.api;
+package xyz.voidline.api;
 
 import java.util.Map;
 import java.util.UUID;
